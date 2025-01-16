@@ -9,14 +9,14 @@ import java.util.List;
 public interface AgentRepository extends JpaRepository<Agent, Long> {
 
     @Query("SELECT u FROM Agent u WHERE u.is_deleted = false")
-    List<Agent> findAllActiveUsers();
+    List<Agent> findAllActiveAgents();
 
     @Query("SELECT u FROM Agent u WHERE u.is_deleted = true")
-    List<Agent> findAllDeActivatedUsers();
+    List<Agent> findAllDeActivatedAgents();
 
     @Query("SELECT u FROM Agent u WHERE u.is_deleted = false AND u.id = :id")
-    Agent findActiveUserById(Long id);
+    Agent findActiveAgentById(Long id);
 
     @Query("SELECT u FROM Agent u WHERE u.is_deleted = true AND u.id = :id")
-    Agent findDeActivatedUserById(Long id);
+    Agent findDeActivatedAgentById(Long id);
 }

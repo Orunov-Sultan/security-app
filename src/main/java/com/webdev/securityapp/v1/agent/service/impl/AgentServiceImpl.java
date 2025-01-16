@@ -1,10 +1,10 @@
 package com.webdev.securityapp.v1.agent.service.impl;
 
-import com.webdev.securityapp.v1.agent.service.AgentService;
-import com.webdev.securityapp.v1.exception.ResourceNotFoundException;
 import com.webdev.securityapp.v1.agent.dto.AgentDto;
 import com.webdev.securityapp.v1.agent.entity.Agent;
 import com.webdev.securityapp.v1.agent.repository.AgentRepository;
+import com.webdev.securityapp.v1.agent.service.AgentService;
+import com.webdev.securityapp.v1.exception.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +54,7 @@ public class AgentServiceImpl implements AgentService {
     }
 
     @Override
-    public List<AgentDto> findAllDeActiveUsers() {
+    public List<AgentDto> findAllDeActiveAgent() {
         List<Agent> agents = agentRepository.findAllDeActivatedAgents();
         return agents.stream()
                 .map(agent -> modelMapper.map(agent, AgentDto.class))
@@ -62,7 +62,7 @@ public class AgentServiceImpl implements AgentService {
     }
 
     @Override
-    public AgentDto updateUser(Long id, AgentDto agentDto) {
+    public AgentDto updateAgent(Long id, AgentDto agentDto) {
         Agent agent = agentRepository.findActiveAgentById(id);
 
         if (agent == null) {
@@ -76,7 +76,7 @@ public class AgentServiceImpl implements AgentService {
     }
 
     @Override
-    public AgentDto reActivateUser(Long id) {
+    public AgentDto reActivateAgent(Long id) {
         Agent agent = agentRepository.findDeActivatedAgentById(id);
 
         if (agent == null) {

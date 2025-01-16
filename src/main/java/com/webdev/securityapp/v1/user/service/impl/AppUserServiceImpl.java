@@ -1,10 +1,10 @@
-package com.webdev.securityapp.v1.users.service.impl;
+package com.webdev.securityapp.v1.user.service.impl;
 
 import com.webdev.securityapp.v1.exception.ResourceNotFoundException;
-import com.webdev.securityapp.v1.users.dto.AppUserDto;
-import com.webdev.securityapp.v1.users.entity.AppUser;
-import com.webdev.securityapp.v1.users.repository.AppUserRepository;
-import com.webdev.securityapp.v1.users.service.AppUserService;
+import com.webdev.securityapp.v1.user.dto.AppUserDto;
+import com.webdev.securityapp.v1.user.entity.AppUser;
+import com.webdev.securityapp.v1.user.repository.AppUserRepository;
+import com.webdev.securityapp.v1.user.service.AppUserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

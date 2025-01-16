@@ -1,4 +1,4 @@
-package com.webdev.securityapp.v1.users.dto;
+package com.webdev.securityapp.v1.user.dto;
 
 import java.time.LocalDateTime;
 

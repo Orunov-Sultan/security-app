@@ -1,6 +1,6 @@
-package com.webdev.securityapp.v1.users.repository;
+package com.webdev.securityapp.v1.user.repository;
 
-import com.webdev.securityapp.v1.users.entity.AppUser;
+import com.webdev.securityapp.v1.user.entity.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

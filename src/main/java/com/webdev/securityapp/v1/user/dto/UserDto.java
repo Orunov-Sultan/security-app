@@ -2,7 +2,7 @@ package com.webdev.securityapp.v1.user.dto;
 
 import java.time.LocalDateTime;
 
-public class AppUserDto {
+public class UserDto {
     private Long id;
     private String login;
     private String password;
@@ -10,10 +10,10 @@ public class AppUserDto {
     private LocalDateTime last_login;
     private Boolean is_deleted;
 
-    public AppUserDto() {
+    public UserDto() {
     }
 
-    public AppUserDto(Long id, String login, String password, LocalDateTime created_at, LocalDateTime last_login, Boolean is_deleted) {
+    public UserDto(Long id, String login, String password, LocalDateTime created_at, LocalDateTime last_login, Boolean is_deleted) {
         this.id = id;
         this.login = login;
         this.password = password;

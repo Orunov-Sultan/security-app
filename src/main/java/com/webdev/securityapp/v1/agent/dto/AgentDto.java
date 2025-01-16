@@ -1,29 +1,26 @@
-package com.webdev.securityapp.v1.user.entity;
-
-import jakarta.persistence.*;
+package com.webdev.securityapp.v1.agent.dto;
 
 import java.time.LocalDateTime;
-@Entity
-@Table(name = "app_users")
-public class AppUser {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+public class AgentDto {
     private Long id;
     private String login;
     private String password;
-    @Column(updatable = false)
     private LocalDateTime created_at;
-    private LocalDateTime last_login;
+    private String contact_id;
+    private String address;
     private Boolean is_deleted;
 
-    public AppUser() {
+    public AgentDto() {
     }
 
-    public AppUser(String login, String password, LocalDateTime created_at, LocalDateTime last_login, Boolean is_deleted) {
+    public AgentDto(Long id, String login, String password, LocalDateTime created_at, String contact_id, String address, Boolean is_deleted) {
+        this.id = id;
         this.login = login;
         this.password = password;
         this.created_at = created_at;
-        this.last_login = last_login;
+        this.contact_id = contact_id;
+        this.address = address;
         this.is_deleted = is_deleted;
     }
 
@@ -59,12 +56,20 @@ public class AppUser {
         this.created_at = created_at;
     }
 
-    public LocalDateTime getLast_login() {
-        return last_login;
+    public String getContact_id() {
+        return contact_id;
     }
 
-    public void setLast_login(LocalDateTime last_login) {
-        this.last_login = last_login;
+    public void setContact_id(String contact_id) {
+        this.contact_id = contact_id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Boolean getIs_deleted() {
@@ -74,5 +79,4 @@ public class AppUser {
     public void setIs_deleted(Boolean is_deleted) {
         this.is_deleted = is_deleted;
     }
-
 }

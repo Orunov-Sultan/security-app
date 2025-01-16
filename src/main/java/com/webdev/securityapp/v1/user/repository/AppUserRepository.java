@@ -8,15 +8,15 @@ import java.util.List;
 
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 
-    @Query("SELECT u FROM AppUser u WHERE u.is_deleted = false")
+    @Query("SELECT u FROM Agent u WHERE u.is_deleted = false")
     List<AppUser> findAllActiveUsers();
 
-    @Query("SELECT u FROM AppUser u WHERE u.is_deleted = true")
+    @Query("SELECT u FROM Agent u WHERE u.is_deleted = true")
     List<AppUser> findAllDeActivatedUsers();
 
-    @Query("SELECT u FROM AppUser u WHERE u.is_deleted = false AND u.id = :id")
+    @Query("SELECT u FROM Agent u WHERE u.is_deleted = false AND u.id = :id")
     AppUser findActiveUserById(Long id);
 
-    @Query("SELECT u FROM AppUser u WHERE u.is_deleted = true AND u.id = :id")
+    @Query("SELECT u FROM Agent u WHERE u.is_deleted = true AND u.id = :id")
     AppUser findDeActivatedUserById(Long id);
 }

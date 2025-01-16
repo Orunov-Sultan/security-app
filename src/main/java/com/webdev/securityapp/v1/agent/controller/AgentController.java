@@ -40,6 +40,9 @@ public class AgentController {
     @GetMapping("/deactivated-agents")
     public ResponseEntity<List<AgentDto>> getAllDeactivatedAgents() {
         List<AgentDto> agentsDto = agentService.findAllDeActiveAgents();
+        if (agentsDto.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.ok(agentsDto);
     }
 

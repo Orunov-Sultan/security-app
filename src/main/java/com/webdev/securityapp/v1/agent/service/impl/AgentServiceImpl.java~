@@ -71,8 +71,7 @@ public class AgentServiceImpl implements AgentService {
 
         agent.setLogin(agentDto.getLogin());
         agent.setAddress(agentDto.getAddress());
-        agent.setPassword(agentDto.getPassword());
-
+        
         Agent updatedAgent = agentRepository.save(agent);
 
         return modelMapper.map(updatedAgent, AgentDto.class);

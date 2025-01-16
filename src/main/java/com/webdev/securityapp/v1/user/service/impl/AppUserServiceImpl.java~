@@ -72,7 +72,7 @@ public class AppUserServiceImpl implements AppUserService {
 
         user.setLogin(appUserDto.getLogin());
         user.setPassword(appUserDto.getPassword());
-
+        
         AppUser updatedUser = appUserRepository.save(user);
 
         return modelMapper.map(updatedUser, AppUserDto.class);

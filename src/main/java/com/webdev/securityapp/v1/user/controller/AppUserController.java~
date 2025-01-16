@@ -39,9 +39,6 @@ public class AppUserController {
     @GetMapping("/deactivated-users")
     public ResponseEntity<List<AppUserDto>> getAllDeactivatedUsers() {
         List<AppUserDto> appUsersDto = appUserService.findAllDeActiveUsers();
-        if (appUsersDto.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
         return ResponseEntity.ok(appUsersDto);
     }
 

@@ -20,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PreAuthorize("hasRole('EMPLOYEE') or hasRole('AGENT')")
+    @PreAuthorize("hasRole('EMPLOYEE') and hasRole('AGENT')")
     @PostMapping
     public ResponseEntity<UserDto> addUser(@RequestBody UserDto userDto) {
         return new ResponseEntity<>(userService.save(userDto), HttpStatus.CREATED);
@@ -38,7 +38,7 @@ public class UserController {
         return ResponseEntity.ok(appUsersDto);
     }
 
-    @PreAuthorize("hasRole('EMPLOYEE') or hasRole('AGENT')")
+    @PreAuthorize("hasRole('EMPLOYEE') and hasRole('AGENT')")
     @GetMapping("/deactivated-users")
     public ResponseEntity<List<UserDto>> getAllDeactivatedUsers() {
         List<UserDto> appUsersDto = userService.findAllDeActiveUsers();
@@ -48,21 +48,21 @@ public class UserController {
         return ResponseEntity.ok(appUsersDto);
     }
 
-    @PreAuthorize("hasRole('EMPLOYEE') or hasRole('AGENT')")
+    @PreAuthorize("hasRole('EMPLOYEE') and hasRole('AGENT')")
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
         UserDto updatedUser = userService.updateUser(id, userDto);
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('EMPLOYEE') or hasRole('AGENT')")
+    @PreAuthorize("hasRole('EMPLOYEE') and hasRole('AGENT')")
     @PutMapping("/reactivate/{id}")
     public ResponseEntity<UserDto> reActivateUser(@PathVariable Long id) {
         UserDto reActivatedUser = userService.reActivateUser(id);
         return new ResponseEntity<>(reActivatedUser, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('EMPLOYEE') or hasRole('AGENT')")
+    @PreAuthorize("hasRole('EMPLOYEE') and hasRole('AGENT')")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.delete(id);

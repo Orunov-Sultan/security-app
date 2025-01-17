@@ -1,5 +1,6 @@
 package com.webdev.securityapp.v1.user.controller;
 
+import com.webdev.securityapp.v1.security.JWTAuthResponse;
 import com.webdev.securityapp.v1.user.dto.LoginDto;
 import com.webdev.securityapp.v1.user.dto.RegisterDto;
 import com.webdev.securityapp.v1.user.service.AuthService;
@@ -21,9 +22,12 @@ public class UserAuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
-        String response = authService.login(loginDto);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<JWTAuthResponse> login(@RequestBody LoginDto loginDto) {
+        String token = authService.login(loginDto);
+
+        JWTAuthResponse jwtAuthResponse = new JWTAuthResponse();
+        jwtAuthResponse.setAccessToken(token);
+        return ResponseEntity.ok(jwtAuthResponse);
     }
 
     @PostMapping("/register")

@@ -1,0 +1,4 @@
+package com.webdev.securityapp.v1.employee.service.impl;
+
+public class AuthEmployeeServiceImpl {
+}

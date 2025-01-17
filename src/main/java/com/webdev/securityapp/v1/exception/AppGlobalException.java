@@ -76,6 +76,16 @@ public class AppGlobalException {
     }
 
     @ExceptionHandler
+    public ResponseEntity<ErrorDetails> handleJwtTokenException(JwtTokenException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails();
+        errorDetails.setTimestamp(LocalDateTime.now());
+        errorDetails.setMessage(ex.getMessage());
+        errorDetails.setCode(HttpStatus.BAD_REQUEST.value());
+        errorDetails.setPath(request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler
     public ResponseEntity<ErrorDetails> handleGlobalException(Exception ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails();
         errorDetails.setTimestamp(LocalDateTime.now());
